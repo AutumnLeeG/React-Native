@@ -62,9 +62,11 @@ function RenderComments({comments}) {
                 data={comments}
                 renderItem={renderCommentItem}
                 keyExtractor={item => item.id.toString()}
-            />
+            >
+
+            </FlatList> 
         </Card>
-    )
+    );
 }
 
 class CampsiteInfo extends Component {

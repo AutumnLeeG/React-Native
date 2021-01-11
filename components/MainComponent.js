@@ -138,7 +138,7 @@ const ReservationNavigator = createStackNavigator(
                     type='font-awesome'
                     iconStyle={styles.stackIcon}
                     onPress={() => navigation.toggleDrawer()}
-                />
+            />
         })
     }
 );

@@ -118,7 +118,8 @@ class CampsiteInfo extends Component {
         this.setState({
             rating: 5,
             author: '',
-            text: ''
+            text: '',
+            showModal: false
         }); 
     }
 

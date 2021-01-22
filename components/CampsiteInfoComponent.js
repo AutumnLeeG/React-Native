@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, ScrollView, FlatList,
-    Modal, Button, StyleSheet,
-    Alert, PanResponder } from 'react-native';
+    Modal, Button, StyleSheet, Alert, PanResponder } from 'react-native';
 import { Card, Icon, Rating, Input } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { baseUrl } from '../shared/baseUrl';
@@ -29,6 +28,8 @@ function RenderCampsite(props) {
 
     const recognizeDrag = ({dx}) => (dx < -200) ? true : false;
 
+    const recognizeComment = ({dx}) => (dx > 200) ? true: false;
+
     const panResponder = PanResponder.create({
         onStartShouldSetPanResponder: () => true,
         onPanResponderGrant: () => {
@@ -49,12 +50,13 @@ function RenderCampsite(props) {
                         },
                         {
                             text: 'OK',
-                            onPress: () => props.favorite ?
-                                console.log('Already set as a favorite') : props.markFavorite()
+                            onPress: () => props.favorite ? console.log('Already set as a favorite') : props.markFavorite()
                         }
                     ],
                     { cancelable: false }
-                );
+                )
+            } else if (recognizeComment(gestureState)) { 
+                props.onShowModal();
             }
             return true;
         }
@@ -81,8 +83,7 @@ function RenderCampsite(props) {
                                 color='#f50'
                                 raised
                                 reverse
-                                onPress={() => props.favorite ? 
-                                    console.log('Already set as a favorite') : props.markFavorite()}
+                                onPress={() => props.favorite ? console.log('Already set as a favorite') : props.markFavorite()}
                             />
                             <Icon
                                 name='pencil' 

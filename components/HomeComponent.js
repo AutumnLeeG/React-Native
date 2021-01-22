@@ -17,7 +17,7 @@ function RenderItem(props) {
     const {item} = props;
 
     if (props.isLoading) {
-        return <Loading />;
+        return <Loading />
     }
     if (props.errMess) {
         return (

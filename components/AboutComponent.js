@@ -67,8 +67,7 @@ class About extends Component {
             <ScrollView>
             <Animatable.View animation='fadeInDown' duration={2000} delay={1000}>
                 <Mission />
-                <Card
-                    title="Community Partners">
+                <Card title="Community Partners">
                     <FlatList
                         data={this.props.partners.partners}
                         renderItem={renderPartner}

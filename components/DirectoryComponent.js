@@ -27,8 +27,8 @@ class Directory extends Component {
                         title={item.name}
                         caption={item.description}
                         featured
-                        onPress={() => navigate('CampsiteInfo', { campsiteId: item.id })}
                         imageSrc={{uri: baseUrl + item.image}}
+                        onPress={() => navigate('CampsiteInfo', { campsiteId: item.id })}  
                     />
                 </Animatable.View>
             );
